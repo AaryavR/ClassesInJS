@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Class Inheritance Example</title>
+    </head>
+    <body>
+
+        <p id="1"></p>
+        <p id="2"></p>
+
+        <script>
+            class Person {
+                constructor(name, age) {
+                    this.name = name;
+                    this.age = age;
+                }
+                
+                getDetails() {
+                    return "Name: " + this.name +  " Age: " + this.age;
+                }
+                
+                static greet() {
+                    return "Hello from Person class!";
+                }
+            }
+            
+            class Student extends Person {
+                constructor(name, age, grade) {
+                    super(name, age);
+                    this.grade = grade;
+                }
+                
+                getStudentDetails() {
+                    return this.getDetails() + " Grade: " + this.grade;
+                }
+            }
+            
+            const student1 = new Student("Alice", 15, "9th Grade");
+            
+            document.getElementById("1").innerHTML = student1.getStudentDetails();
+            document.getElementById("2").innerHTML = Person.greet();
+
+        </script>
+    </body>
+</html>
